@@ -1,0 +1,170 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <!-- <h1><i>All Listings:</i></h1> -->
+    <!-- <form method="get" action="/listings/new">
+        <button>Create New !</button>
+    </form> -->
+    <style>
+        #filters{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .filter{
+            text-align: center;
+            margin-right: 2.5rem;
+            margin-top: 2rem;
+            opacity: 0.8;
+        }
+
+        .filter:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .filter p{
+            font-size: 0.7rem;
+        }
+        .tax-info{
+            display: none;
+        }
+    </style>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <div class="tax-toggle" style="display: flex; flex-wrap: wrap;">
+                <div class="form-check-reverse form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    <label class="form-check-label" for="flexSwitchCheckDefault" ><b>Tax</b></label>
+                </div>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#" style="margin-left: 1rem;"><i class="fa-solid fa-fire" style="padding-left: 0.4rem;"></i><div>Trending</div></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" style="margin-left: 1rem;"><i class="fa-solid fa-door-open" style="padding-left: 0.4rem;"></i><div>Rooms</div></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" style="margin-left: 1rem;"><i class="fa-solid fa-mountain-city" style="padding-left: 0.4rem;"></i><div>Iconic</div></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" style="margin-left: 1rem;"><i class="fa-solid fa-mountain" style="padding-left: 0.4rem;"></i><div>Mountains</div></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" style="margin-left: 1rem;"><i class="fa-solid fa-chess-rook" style="padding-left: 0.4rem;"></i><div>Castles</div></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" style="margin-left: 1rem;"><i class="fa-solid fa-person-swimming" style="padding-left: 0.4rem;"></i><div>Amazing</div></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" style="margin-left: 1rem;"><i class="fa-solid fa-umbrella-beach" style="padding-left: 0.4rem;"></i><div>Beach</div></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" style="margin-left: 1rem;"><i class="fa-solid fa-cow" style="padding-left: 0.4rem;"></i><div>Farms</div></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" style="margin-left: 1rem;"><i class="fa-solid fa-house-user" style="padding-left: 0.4rem;"></i><div>TreeHouses</div></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" style="margin-left: 1rem;"><i class="fa-solid fa-ranking-star" style="padding-left: 0.4rem;"></i><div>Mansions</div></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" style="margin-left: 1rem;"><i class="fa-solid fa-water" style="padding-left: 0.4rem;"></i><div>Islands</div></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" style="margin-left: 1rem;"><i class="fa-solid fa-campground" style="padding-left: 0.4rem;"></i><div>Camping</div></a>
+              </li>
+          </div>
+        </div>
+      </nav>
+    <!-- <div id="filters" class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="filter nav-item">
+            <div><i class="fa-solid fa-fire"></i></div>
+            <p>Trending</p>
+        </div>
+        <div class="filter nav-item">
+            <div><i class="fa-solid fa-door-open"></i></div>
+            <p>Rooms</p>
+        </div>
+        <div class="filter nav-item">
+            <div><i class="fa-solid fa-mountain-city"></i></div>
+            <p>Iconic Cities</p>
+        </div>
+        <div class="filter nav-item">
+            <div><i class="fa-solid fa-mountain"></i></i></div>
+            <p>Mountains</p>
+        </div>
+        <div class="filter nav-item">
+            <div><i class="fa-solid fa-chess-rook"></i></div>
+            <p>Castles</p>
+        </div>
+        <div class="filter nav-item">
+            <div><i class="fa-solid fa-person-swimming"></i></div>
+            <p>Amazing Pools</p>
+        </div>
+        <div class="filter nav-item">
+            <div><i class="fa-solid fa-umbrella-beach"></i></div>
+            <p>Beach</p>
+        </div>
+        <div class="filter nav-item">
+            <div><i class="fa-solid fa-cow"></i></div>
+            <p>Farms</p>
+        </div>
+        <div class="filter nav-item">
+            <div><i class="fa-solid fa-house-user"></i></div>
+            <p>Treehouses</p>
+        </div>
+        <div class="filter nav-item">
+            <div><i class="fa-solid fa-ranking-star"></i></div>
+            <p>Mansions</p>
+        </div>
+        <div class="filter nav-item">
+            <div><i class="fa-solid fa-water"></i></div>
+            <p>Lake</p>
+        </div>
+        <div class="filter nav-item">
+            <div><i class="fa-solid fa-users-rectangle"></i></div>
+            <p>Islands</p>
+        </div>
+        <div class="filter nav-item">
+            <div><i class="fa-solid fa-campground"></i></div>
+            <p>Camping</p>
+        </div>
+    </div> -->
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+        <% for(let list of allListings) {%>
+            <a href="/listings/<%= list._id %>" style="text-decoration: none;">
+                <div class="card" style="width: 20rem;">
+                    <img src="<%= list.Image.url %>" class="card-img-top" alt="Listing Image" style="height: 15rem;">
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                      <h5 class="card-title"><b><%=list.title%></b></h5>
+                      <p class="card-text">
+                        &#8377;<%= list.price.toLocaleString("en-IN") %>/night
+                        <i class="tax-info">&nbsp;&nbsp;+18% GST</i>
+                    </p>
+                </div>
+            </div>
+            </a>
+        <% } %>
+    </div>
+</body>
+
+<script>
+    let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+    taxSwitch.addEventListener("click", () => {
+        let taxInfo = document.getElementsByClassName("tax-info");
+        for(info of taxInfo){
+            if(info.style.display != "inline"){
+                info.style.display = "inline";
+            }
+            else{
+                info.style.display = "none";
+            }
+        }
+    })
+</script>
