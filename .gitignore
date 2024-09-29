@@ -1,2 +1,12 @@
-.env
+CSS/
+Database_Relational/
+Git_GitHub/
+HTML/
+JavaScript/
+Mongo_express/
+MongoDB/
 node_modules/
+.env
+Packages/
+SQL/
+Sudoku Solver/
