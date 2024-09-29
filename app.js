@@ -81,11 +81,6 @@ const sessionOptions = {
 }
 
 
-app.get("/",(req,res)=>{
-    console.dir(req.cookies);
-    res.render("/listings");
-})
-
 // activating cookie
 app.use(session(sessionOptions));
 app.use(flash());
@@ -115,6 +110,10 @@ app.use((req,res,next) => {
 //     let registeredUser = await User.register(fakeuser,"Mypassword");
 //     res.send(registeredUser);
 // })
+app.get("/",(req,res)=>{
+    console.dir(req.cookies);
+    res.render("/listings");
+});
 
 app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewsRouter);
