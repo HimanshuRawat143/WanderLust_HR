@@ -27,7 +27,7 @@ const validateSchema = (req,res,next) => {
 // now we are going to use router.route to combine common routes
 router
     // common route
-    .route("/")
+    .route("/",controllerRoute.listings)
     // index route
     .get(controllerRoute.listings)
     // create route
