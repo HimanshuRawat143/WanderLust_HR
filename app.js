@@ -83,7 +83,7 @@ const sessionOptions = {
 
 app.get("/",(req,res)=>{
     console.dir(req.cookies);
-    res.send("hello Bae!");
+    res.render("/listings");
 })
 
 // activating cookie
